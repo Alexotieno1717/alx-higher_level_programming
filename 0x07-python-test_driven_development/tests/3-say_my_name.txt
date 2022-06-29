@@ -1,79 +1,54 @@
-The 3-say_my_name module
-=========================
+The ``3-say_my_name`` module
+============================
 
 Using ``say_my_name``
 ---------------------
 
-Importing say_my_name from 3-say_my_name
+Importing function from the module:
 
     >>> say_my_name = __import__('3-say_my_name').say_my_name
 
-Now Testing :-**-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*-*-*-*-*
+Passing first_name and last_name correctly
 
-    TestCase_1: pass the function two strings
+    >>> say_my_name("Betty", "Holberton")
+    My name is Betty Holberton
 
-    >>> say_my_name('elmahdi', 'mamoun')
-    My name is elmahdi mamoun
+Passing first_name and last_name correctly 2
 
-***************************************************
+    >>> say_my_name("Luis")
+    My name is Luis 
 
-    TestCase_2: pass the function only the first string argument
+Passing None as the last_name
 
-    >>> say_my_name('elmahdi')
-    My name is elmahdi 
-
-***************************************************
-
-    TestCase_3: don't pass any arguments
-
-    >>> say_my_name() #doctest: +ELLIPSIS
+    >>> say_my_name("John", None)
     Traceback (most recent call last):
-        ...
-    TypeError: ...
-
-***************************************************
-
-    TestCase_4: pass an integer in the first argument
-
-    >>> say_my_name(2) #doctest: +ELLIPSIS
-    Traceback (most recent call last):
-        ...
-    TypeError: first_name must be a string
-
-***************************************************
-
-    TestCase_5: pass an integer in the second argument
-
-    >>> say_my_name('elmahdi', 2) #doctest: +ELLIPSIS
-    Traceback (most recent call last):
-        ...
+    	      ...
     TypeError: last_name must be a string
 
-***************************************************
+Passing None as the first_name
 
-    TestCase_6: passing None in first argument
-
-    >>> say_my_name(None) #doctest: +ELLIPSIS
+    >>> say_my_name(None)
     Traceback (most recent call last):
-        ...
-    TypeError: ...
+    	      ...
+    TypeError: first_name must be a string
 
-***************************************************
+Passing a number as the first_name
 
-    TestCase_7: pass it a boolean True
-
-    >>> say_my_name(True) #doctest: +ELLIPSIS
+    >>> say_my_name(1)
     Traceback (most recent call last):
-        ...
-    TypeError: ...
+    	      ...
+    TypeError: first_name must be a string
 
-***************************************************
+Passing a number as the last_name
 
-    TestCase_8: pass it a boolean False
-
-    >>> say_my_name(False) #doctest: +ELLIPSIS
+    >>> say_my_name("Betty", 0)
     Traceback (most recent call last):
-        ...
-    TypeError: ...
+    	      ...
+    TypeError: last_name must be a string
 
-***************************************************
+Missing two arguments
+
+    >>> say_my_name()
+    Traceback (most recent call last):
+    	      ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'

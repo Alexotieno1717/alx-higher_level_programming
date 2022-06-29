@@ -1,73 +1,57 @@
-The 4-print_square module
-=========================
+The ``4-print_square`` module
+============================
 
 Using ``print_square``
-----------------------
+---------------------
 
-Importing print_square from 4-print_square
+Importing function from the module:
 
     >>> print_square = __import__('4-print_square').print_square
 
-Now Testing:####################################################
+Printing a square with a size of 5
 
-    TestCase_1: pass it  4 to print a square of size 4
+    >>> print_square(5)
+    #####
+    #####
+    #####
+    #####
+    #####
 
-    >>> print_square(4)
-    ####
-    ####
-    ####
-    ####
-
-****************************************************************
-
-    TestCase_2: pass it  0 to print a square of size 0
+Passing 0 as the size of the square
 
     >>> print_square(0)
-    
 
-****************************************************************
+Passing a float number as the size of the square
 
-    TestCase_3: pass it  -4 to print a square of size -4
-
-    >>> print_square(-4) #doctest: +ELLIPSIS
+    >>> print_square(1.0)
     Traceback (most recent call last):
-        ...
+    	      ...
+    TypeError: size must be an integer
+
+Passing a string as the size of the square
+
+    >>> print_square('2')
+    Traceback (most recent call last):
+    	      ...
+    TypeError: size must be an integer
+
+Passing a negative number as the size of the square
+
+    >>> print_square(-2)
+    Traceback (most recent call last):
+    	     ...
     ValueError: size must be >= 0
 
-****************************************************************
+Passing None as the size of the square
 
-    TestCase_4: pass it  a string intead of a integer
-
-    >>> print_square('0') # doctest: +ELLIPSIS
+    >>> print_square(None)
     Traceback (most recent call last):
-        ...
+    	      ...
     TypeError: size must be an integer
 
-****************************************************************
+Missing argument
 
-    TestCase_5: pass it  a boolean instead of a integer
-
-    >>> print_square(True) # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-        ...
-    TypeError: size must be an integer
-
-****************************************************************
-
-    TestCase_6: pass it  a negative float instead of a integer
-
-    >>> print_square(-2.5) # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-        ...
-    TypeError: size must be an integer
-
-****************************************************************
-
-    TestCase_7: pass it  None
-
-    >>> print_square(None) # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-        ...
-    TypeError: ...
-
-****************************************************************
+   >>> print_square()
+   Traceback (most recent call last):
+   	     ...
+   TypeError: print_square() missing 1 required positional argument: 'size'

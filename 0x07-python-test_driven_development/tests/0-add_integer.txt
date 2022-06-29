@@ -1,65 +1,95 @@
-The 0-add_integer.py module
-======================
+The ``0-add_integer`` module
+============================
 
 Using ``add_integer``
--------------------
+---------------------
 
-Testing the add_integer function.  First import
-``add_integer`` from the ``0-add_integer`` module:
-
+Importing function from the module:
     >>> add_integer = __import__('0-add_integer').add_integer
 
-Now Testing:
+Adding 1 and 2
+    >>> add_integer(1, 2)
+    3
 
-------------------------------------
-    test if it raises TypeError if arguments aren't int of float
+Subtracting 100 and 2
+    >>> add_integer(100, -2)
+    98
 
-    >>> add_integer('hi', 5) # doctest: +ELLIPSIS
+Adding 2.1 and 98
+    >>> add_integer(2.1)
+    100
+
+Subtracting 100.3 and 2
+	    >>> add_integer(100.3, -2)
+	    98
+
+Adding an integer number and a string
+    >>> add_integer(4, "School")
     Traceback (most recent call last):
-    TypeError: ... must be an integer
+	      ...
+    TypeError: b must be an integer
 
-------------------------------------
-    test if floats are casted to int
-
-    >>> r = add_integer(4.54, 5) # doctest: +ELLIPSIS
-    >>> print(r)
-    9
-
-------------------------------------
-    test if it will raise a error when passing no arguments
-
-    >>> r = add_integer() # doctest: +ELLIPSIS, +IGNORE_EXCEPTION_DETAIL
+Passing None
+    >>> add_integer(None)
     Traceback (most recent call last):
-	    ...
-    TypeError:
+	      ...
+    TypeError: a must be an integer
 
-------------------------------------
-    test if it gor only one argument
-
-    >>> r = add_integer(-5) # doctest: +ELLIPSIS
-    >>> print(r)
-    93
-
-------------------------------------
-    test if it got only one None argument
-
-    >>> r = add_integer(None) # doctest: +ELLIPSIS
+Adding a letter and a number
+    >>> add_integer('1', 1)
     Traceback (most recent call last):
-        ...
-    TypeError: ... must be an integer
+              ...
+    TypeError: a must be an integer
 
-------------------------------------
-    test if it got a True argument
-
-    >>> r = add_integer(True) # doctest: +ELLIPSIS
+Adding two letters
+    >>> add_integer('2', '1')
     Traceback (most recent call last):
-        ...
-    TypeError: ... must be an integer
+              ...
+    TypeError: a must be an integer
 
-------------------------------------
-    test if it got a False argument
-
-    >>> r = add_integer(False) # doctest: +ELLIPSIS
+Adding a tuple
+    >>> add_integer((1, 1))
     Traceback (most recent call last):
-        ...
-    TypeError: ...must be an integer
+              ...
+    TypeError: a must be an integer
+
+Adding a number and a list
+    >>> add_integer(123, [])
+    Traceback (most recent call last):
+	      ...
+    TypeError: b must be an integer
+
+Passing a string
+    >>> add_integer("Hello")
+    Traceback (most recent call last):
+	      ...
+    TypeError: a must be an integer
+
+Adding two float numbers
+    >>> add_integer(2.9, 2.9)
+    4
+
+Subtracting 98 and 1
+    >>> add_integer(-1)
+    97
+
+Case Overflow:
+
+    >>> add_integer(float('inf'), 0)
+    Traceback (most recent call last):
+    	      ...
+    OverflowError: cannot convert float infinity to integer
+
+Case Overflow 2:
+
+    >>> add_integer(float('inf'), float('-inf'))
+    Traceback (most recent call last):
+    	      ...
+    OverflowError: cannot convert float infinity to integer
+
+Case NaN:
+
+    >>> add_integer(0, float('nan'))
+    Traceback (most recent call last):
+    	      ...
+    ValueError: cannot convert float NaN to integer
